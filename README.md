@@ -1,65 +1,78 @@
-📂 Modeller ve Açıklamalar
-1. Decision Tree
-Mantık: Veriyi özellik tabanlı kurallarla alt kümelere böler.
+# 🧠 Kanser Sınıflandırması - Makine Öğrenmesi Modelleri ile Karşılaştırmalı Çalışma
 
-Avantaj: Yorumlanabilirlik ve hızlı eğitim süresi.
+## 1. 📌 Proje Tanımı
 
-Dezavantaj: Aşırı öğrenmeye eğilimli.
+Bu proje, kanser teşhisinde kullanılabilecek farklı makine öğrenmesi algoritmalarını karşılaştırmalı olarak değerlendirerek, hangi modelin daha iyi performans gösterdiğini belirlemeyi amaçlamaktadır. Amaç; doğruluk oranı yüksek ve uygulanabilirliği kolay bir model tespit etmektir.
 
-Bu Projedeki Performans: 95.9% doğruluk.
-2. K-Nearest Neighbors (KNN)
-Mantık: Test örneğine en yakın k komşunun çoğunluk sınıfını tahmin eder.
+## 2. 📊 Kullanılan Modeller
 
-Avantaj: Basit uygulama, parametre optimizasyonu esnek.
+Aşağıda yer alan yaygın gözetimli öğrenme algoritmaları kullanılarak sınıflandırma işlemi gerçekleştirilmiştir:
 
-Dezavantaj: Yüksek bellek kullanımı, ölçeklendirme gereksinimi.
+- **K-Nearest Neighbors (KNN)**
+- **Lojistik Regresyon**
+- **Naive Bayes (GaussianNB)**
+- **Random Forest**
+- **Support Vector Classifier (SVC)**
+- **Decision Tree**
 
-Bu Projedeki Performans: 0.94
-3. Naive Bayes
-Mantık: Bayes teoremi ile özelliklerin koşulsuz bağımsızlığını varsayar.
+Her bir model aynı eğitim ve test veri setleri üzerinde çalıştırılarak performansları karşılaştırılmıştır.
 
-Avantaj: Düşük hesaplama maliyeti, küçük verilerde etkili.
+## 3. 🧪 Veri Seti ve Özellikler
 
-Dezavantaj: Gerçek hayatta bağımsızlık varsayımı zayıf.
+Kullanılan veri seti, kanserli ve kanser olmayan vakaları içeren etiketli tıbbi verilerden oluşmaktadır. Özellikler hücrelerin çeşitli morfolojik ölçütlerine dayanmaktadır (örneğin: boyut, doku yoğunluğu, çekirdek şekli). Hedef değişken, kanserin iyi huylu (*benign*) ya da kötü huylu (*malignant*) olduğunu belirtir.
 
-Bu Projedeki Performans: 0.94
+## 4. ⚙️ Model Eğitimi ve Değerlendirme
 
-4.  Random Forest
-Mantık: Çok sayıda karar ağacının toplu tahminlerini birleştirir.
+Her model aşağıdaki ortak adımlar ile eğitilmiştir:
 
-Avantaj: Aşırı öğrenmeye dirençli, yüksek doğruluk.
+- Verilerin eğitim (%80) ve test (%20) olarak ayrılması
+- Modelin eğitilmesi (`fit` metodu)
+- Test verileri üzerinde tahmin yapılması (`predict` metodu)
+- Aşağıdaki metrikler ile değerlendirme:
+  - Accuracy (Doğruluk)
+  - Precision (Kesinlik)
+  - Recall (Duyarlılık)
+  - F1-Score
+- Ek olarak:
+  - Karışıklık Matrisi Görselleştirmesi
+  - ROC-AUC Eğrisi (varsa)
 
-Dezavantaj: Yavaş çıkarım, karmaşık yapı.
+Tüm modeller aynı pipeline içerisinde eğitilmiş ve doğrulukları eş zamanlı olarak karşılaştırılmıştır.
 
-Bu Projedeki Performans: 0.93
+## 5. 🥇 Sonuçlar
 
-5. Support Vector Classifier (SVC)
-Mantık: Veriyi hiperdüzlemle en iyi şekilde ayırmayı hedefler.
+Model başarı skorları aşağıdaki gibidir:
 
-Avantaj: Yüksek boyutlu verilerde etkili, kernel trick ile doğrusal olmayan ayrım.
+| Model                | Accuracy | Precision | Recall | F1-Score |
+|---------------------|----------|-----------|--------|----------|
+| KNeighbors           | 0.9473   |
+| Logistic Regression  | 0.9473   |
+| Naive Bayes          | 0.9415   |
+| Random Forest        | 0.9356   |
+| SVC                  | 0.9532   |
+| Decision Tree        | 0.9590   |
 
-Dezavantaj: Büyük veri setlerinde yavaş çalışır.
+> ⚠️ Not: Buradan SVC ve Decision Tree en iyi sonucu vermiş olur
 
-Bu Projedeki Performans: 0.95
+## 6. 🧠 En İyi Performansı Veren Model
 
-6. Lojistik Regresyon
-Mantık: Olasılık tabanlı sınıflandırma için sigmoid fonksiyonu kullanır.
+Bu çalışmada en yüksek başarı oranına ulaşan model:
 
-Avantaj: Hızlı, yorumlanabilir çıktılar (odds ratio).
+**➡️ (Decision Tree)**
 
-Dezavantaj: Doğrusal ilişkilerle sınırlı.
+## 7. 🔧 Nasıl Kullanılır?
 
-Bu Projedeki Performans: 0.94
+Projeyi kendi bilgisayarınızda çalıştırmak için aşağıdaki adımları izleyebilirsiniz:
+
+1. Depoyu klonlayın:
+   ```bash
+   git clone git@github.com:Harungokc/Canser.git
+   cd Canser
+
+👨‍💻 Katkıda Bulunma
+Projeye katkıda bulunmak isterseniz fork edip pull request gönderebilirsiniz. Model performanslarını iyileştirme önerileri veya veri seti çeşitlendirmeleri her zaman memnuniyetle karşılanır.
 
 
-📊 Veri Seti
 
-Kaynak: Wisconsin Meme Kanseri Veri Seti
-
-Özellikler: 30 sayısal özellik (doku boyutu, düzgünlük, vs.).
-
-Hedef Değişken: Diagnosis (Malignant/Benign).
-
-🛠️ Kurulum
 
 
