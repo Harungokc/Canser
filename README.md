@@ -45,14 +45,13 @@ Model başarı skorları aşağıdaki gibidir:
 
 | Model                | Accuracy | Precision | Recall | F1-Score |
 |---------------------|----------|-----------|--------|----------|
-| KNeighbors           | 0.9473   |
-| Logistic Regression  | 0.9473   |
-| Naive Bayes          | 0.9415   |
-| Random Forest        | 0.9356   |
-| SVC                  | 0.9532   |
-| Decision Tree        | 0.9590   |
+| KNeighbors           | 0.9473    0.9365      0.9219   0.9291|
+| Logistic Regression  | 0.9473    0.9365      0.9219   0.9291|
+| Naive Bayes          | 0.9415    0.8857      0.9688   0.9254|
+| Random Forest        | 0.9356    0.9206      0.9062   0.9134|
+| SVC                  | 0.9532    0.9242      0.9531   0.9385|
+| Decision Tree        | 0.9590    0.9385      0.9531   0.9457|
 
-> ⚠️ Not: Buradan SVC ve Decision Tree en iyi sonucu vermiş olur
 
 ## 6. 🧠 En İyi Performansı Veren Model
 
